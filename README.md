@@ -76,7 +76,7 @@ Paste this in: (Make sure to set your usename)
 Type=Application
 Name=MATLAB R2025b
 Comment=MATLAB with custom LD_LIBRARY_PATH
-Exec=env LD_LIBRARY_PATH=/home/YOURUSERNAME/matlab/gnutls/usr/lib/ /home/YOURUSERNAME/matlab/R2025b/bin/matlab
+Exec=/usr/bin/env LD_LIBRARY_PATH=/home/YOURUSERNAME/matlab/gnutls/usr/lib /home/YOURUSERNAME/matlab/R2025b/bin/matlab -desktop
 Icon=/home/YOURUSERNAME/matlab/R2025b/bin/glnxa64/cef_resources/matlab.png
 Terminal=false
 Categories=Development;Science;Math;
