@@ -9,10 +9,11 @@ This is an issue with the current GnuTLS that is shipped with Arch.
 
 
 # Install instructions / Fix 
+
+## Step 1
 Install Matlab-MPM, this is matlabs package manager. 
 https://aur.archlinux.org/packages/matlab-mpm
 
-## Step 1
 ```
 paru -S matlab-mpm
 ```
@@ -62,6 +63,39 @@ env LD_LIBRARY_PATH=/home/$USER/matlab/gnutls/usr/lib/ /home/$USER/matlab/R2025b
 ```
 
 
+## Make a desktop entry
+This just allows you to hit the superkey and start matlab
+```
+nano ~/.local/share/applications/matlab-r2025b.desktop
+```
 
 
+Paste this in: (Make sure to set your usename)
+```
+[Desktop Entry]
+Type=Application
+Name=MATLAB R2025b
+Comment=MATLAB with custom LD_LIBRARY_PATH
+Exec=env LD_LIBRARY_PATH=/home/YOURUSERNAME/matlab/gnutls/usr/lib/ /home/YOURUSERNAME/matlab/R2025b/bin/matlab
+Icon=/home/YOURUSERNAME/matlab/R2025b/bin/glnxa64/cef_resources/matlab.png
+Terminal=false
+Categories=Development;Science;Math;
+StartupNotify=true
+```
+Cntrl+S then Cntrl+X to save and exit
 
+
+Make executable:
+```
+chmod +x ~/.local/share/applications/matlab-r2025b.desktop
+```
+
+Refresh Desktop Database
+```
+update-desktop-database ~/.local/share/applications
+```
+
+# Credits/ Resources
+https://www.reddit.com/r/archlinux/comments/1n4ot2k/has_anyone_got_matlab_working_in_archlinux/
+
+Thanks to u/BigBOBS_LOL for a lot of these steps.
