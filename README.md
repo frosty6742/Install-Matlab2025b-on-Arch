@@ -7,10 +7,12 @@ line 14: 12804 Segmentation fault         (core dumped) $BINDIR/MathWorksProduct
 
 This is an issue with the current GnuTLS that is shipped with Arch. 
 
+
 # Install instructions / Fix 
 Install Matlab-MPM, this is matlabs package manager. 
 https://aur.archlinux.org/packages/matlab-mpm
 
+## Step 1
 ```
 paru -S matlab-mpm
 ```
@@ -20,7 +22,7 @@ paru -S matlab-mpm
 mkdir /home/$USER/matlab/
 cd /home/$USER/matlab/
 
-# install mpm
+# install matlab using mpm
 mpm install --release=R2025b --destination=/home/$USER/matlab/R2025b MATLAB
 ```
 
@@ -28,6 +30,7 @@ More info on mpm and the mpm install arguments:
 https://www.mathworks.com/help/install/ug/get-mpm-os-command-line.html
 
 
+## Step 2
 Now we will install a older, working version, of GnuTLS for only matlab
 
 ```
@@ -47,6 +50,7 @@ chmod +x ReinstallMathWorksServiceHost
 ./ReinstallMathWorksServiceHost
 ```
 
+## Step 3
 Now that this is patched we will be able to run the authorization script without the error. Do this with the patched version of GnuTLS by running:
 ```
 env LD_LIBRARY_PATH=/home/$USER/matlab/gnutls/usr/lib/ /home/$USER/matlab/R2025b/bin/glnxa64/MathWorksProductAuthorizer.sh
