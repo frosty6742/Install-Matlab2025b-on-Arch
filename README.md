@@ -95,6 +95,13 @@ Refresh Desktop Database
 update-desktop-database ~/.local/share/applications
 ```
 
+## Fix scaling issues for some monitors
+On some 4k or other resolutions the matlab gui is scaled in a way that is much too small to read. Change this value to your desired scaling as a percent. 
+```
+>> s = settings;
+>> s.matlab.desktop.Zoom.PersonalValue=150
+```
+
 # Credits/ Resources
 https://www.reddit.com/r/archlinux/comments/1n4ot2k/has_anyone_got_matlab_working_in_archlinux/
 
